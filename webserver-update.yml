@@ -1,0 +1,22 @@
+---
+- name: upload and restart index apache2
+  hosts: 52.66.116.72
+  vars:
+    - app: httpd
+
+  tasks:
+  - name: place custom index file
+    copy:
+      src: /home/ubuntu/jenkinsdata/workspace/httpd-web-deploy/index.html
+      dest: /var/www/html/index.html
+    become: true
+
+  - name: start the service 
+    service:
+      name: apache2
+      state: restarted
+      enabled: yes
+    become: true
+    
+
+      
