@@ -1,6 +1,6 @@
 ---
 - name: upload and restart index apache2
-  hosts: 52.66.116.72
+  hosts: 172.31.15.16
   vars:
     - app: httpd
 
